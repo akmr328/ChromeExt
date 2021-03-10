@@ -1,0 +1,18 @@
+{
+  "name": "What Was I Looking At?",
+  "version": "1.0",
+  "description": "Lose the tabs, remember the site",
+  "permissions": ["http://*/*", "https://*/*","declarativeContent","tabs", "storage"], 
+  "background":{
+    "scripts": ["background.js"],
+    "persistant": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": "images/finger.png"
+  },
+  "icons": {
+      "128": "images/finger.png"
+  },
+  "manifest_version": 2
+}

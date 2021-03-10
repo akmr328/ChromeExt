@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .container{
+        width: 240px;
+        height: 240px;
+        margin: auto;
+        background-color: #DCDCDD;
+        color: #4C5C68;
+        border-color: #46494C;
+        border-radius: 5px;
+        padding: 5px 5px 5px 5px;
+      }
+      p,h2,h3{
+            text-align: center ;;
+        }
+        body{
+            font-family: sans-serif;
+            background-color: #1985A1
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Remind Me!  <span id = "current"></span></h2>
+        <h3>What was I looking at?</h3>
+        <div style="text-align:center;">
+          <label>Enter your URL here</label>
+          <input id="currentTab" placeholder="Add URL"></input>
+            <form>
+              <label for="pageLabel">Add some context?</label>
+              <input type="text" id="reference" name="reference" placeholder="What's this link?"><br><br>
+            </form>
+            <div class="list tab" ng-show="tab === 1">
+              <label class="item item-input">
+                <span class="input-label">Delay in minutes</span>
+                <input type="number" id="f-minutes" ng-model="minutes" min="1" ng-change="setDelay(minutes)" style="font-weight: bold; color: #bd362f;">
+              </label>
+              </div>
+            <button>Save</button>
+        </div>
+      <br />
+    </div>
+    <button id="reminder"></button>
+    <!-- <script src="popup.js"></script> -->
+  </body>
+</html>
