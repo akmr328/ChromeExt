@@ -1,4 +1,4 @@
-chrome.runtime.onInstalled.addListener(function() {
+chrome.runtime.onMessage.addListener(function() {
   chrome.storage.sync.set({color: '#A20021'}, function() {
     console.log('The color is green.');
   });
@@ -13,11 +13,3 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   var button = document.getElementById("submit")
- 
-//   button.addEventListener("click", (e) => {
-//     console.log(e)
-//   })
-//  })
- 
