@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+     <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+  <body>
     <style>
-      .container{
-        width: 240px;
-        height: 240px;
+      .container {
+        width: 350px;
+        height: 350px;
         margin: auto;
         background-color: #DCDCDD;
         color: #4C5C68;
@@ -12,16 +17,14 @@
         border-radius: 5px;
         padding: 5px 5px 5px 5px;
       }
-      p,h2,h3{
-            text-align: center ;;
-        }
-        body{
-            font-family: sans-serif;
-            background-color: #1985A1
-        }
-    </style>
-  </head>
-  <body>
+      
+      p,h2,h3 {
+        text-align: center ;;
+      }
+      body {
+        background-color: #1985A1
+      }
+     </style>
     <div class="container">
       <h2>Remind Me!  <span id = "current"></span></h2>
         <h3>What was I looking at?</h3>
@@ -32,13 +35,17 @@
               <label for="pageLabel">Add some context?</label>
               <input type="text" id="reference" name="reference" placeholder="What's this link?"><br><br>
             </form>
-            <div class="list tab" ng-show="tab === 1">
-              <label class="item item-input">
-                <span class="input-label">Delay in minutes</span>
-                <input type="number" id="f-minutes" ng-model="minutes" min="1" ng-change="setDelay(minutes)" style="font-weight: bold; color: #bd362f;">
-              </label>
-              </div>
-            <button>Save</button>
+            <div class="time-input">
+                <span class="input-label">Choose your reminder time</span>
+                <input type="datetime-local" id="selectedTime" style="font-weight: bold; color: #1995ce;">
+              <button type="submit" class="center btn waves-effect waves-light btn-small">Save</button>
+            </div>
+            <div> 
+              <h4 id="countdown"></h4>
+            </div>
+            <div>
+              <button type="submit" id="email">Email me a reminder</button>
+            </div>
         </div>
       <br />
     </div>
