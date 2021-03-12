@@ -1,19 +1,33 @@
+//DOM
 
-var currentURL = document.getElementById('currentTab');
-
-
-//email toggle
+// const selectedTime = document.getElementById(".selectedTime")
+const saveTime = document.getElementById("saveTime")
 const emailButton = document.getElementById("email")
 
+//email button
+getBasicProfile()
+console.log('Email:' + profile.getEmail())
 
-chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT}, 
-function(tabs){
-	getCurrentURL(tabs[0].url);
+//get current URL
+
+document.getElementById('currentTab') = chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+    let url = tabs[0].url;
+    //use `url` here inside the callback because it's asynchronous!
 });
 
-function getCurrentURL(tab){
-	currentURL = tab;
-}
+chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {      
+  console.log(tabs);
+  if (tabs.length > 0 && tabs[0].url) {
+      setup(tabs[0]);
+  } else  {
+      chrome.bookmarks.getRecent(1, function(pages) {
+          console.log(pages);
+          setup(pages[0]);
+      });
+  }
+
+});
+
 
 
 //creates bookmark extension folder
@@ -31,21 +45,12 @@ chrome.bookmarks.create({
   'url': 'http://code.google.com/chrome/extensions',
 });
 
-//create timer/countdown
-let selectedTime = document.querySelector(".selectedTime")
-console.log(selectedTime)
-let sec = setInterval(function(){
-  const now = new Date().getTime();
-  const distance = selectedTime - now;
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  
-  document.getElementById("countdown").innerHTML = days + "d" + hours + "h" + minutes + "m" + seconds + "s"
-   if (distance < 0) {
-     clearInterval(sec)
-     document.getElementById("countdown").innerHTML = "Times up!"
-   }
-}, 1000)
+//start timer/countdown
+// saveTime.addEventListener("click", function(event) {
+//   chrome.runtime.sendMessage(
+//     {message: saveTime.value}
+    
+//   )
+// })
+
 

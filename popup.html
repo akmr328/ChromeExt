@@ -3,45 +3,29 @@
   <head>
      <!--Import Google Icon Font-->
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+     <link rel="stylesheet" href="/popup.css" />
+     <link rel="manifest" href="/manifest.json" />
   </head>
   <body>
-    <style>
-      .container {
-        width: 350px;
-        height: 350px;
-        margin: auto;
-        background-color: #DCDCDD;
-        color: #4C5C68;
-        border-color: #46494C;
-        border-radius: 5px;
-        padding: 5px 5px 5px 5px;
-      }
-      
-      p,h2,h3 {
-        text-align: center ;;
-      }
-      body {
-        background-color: #1985A1
-      }
-     </style>
     <div class="container">
       <h2>Remind Me!  <span id = "current"></span></h2>
         <h3>What was I looking at?</h3>
         <div style="text-align:center;">
-          <label>Enter your URL here</label>
-          <input id="currentTab" placeholder="Add URL"></input>
+          <!-- <label>Enter your URL here</label>
+          <input id="currentTab" placeholder="Add URL"></input> -->
+          <p id="currentTab">Current tab: </p>
             <form>
               <label for="pageLabel">Add some context?</label>
               <input type="text" id="reference" name="reference" placeholder="What's this link?"><br><br>
             </form>
             <div class="time-input">
-                <span class="input-label">Choose your reminder time</span>
-                <input type="datetime-local" id="selectedTime" style="font-weight: bold; color: #1995ce;">
-              <button type="submit" class="center btn waves-effect waves-light btn-small">Save</button>
+                <form>
+                  <label for="startTime">Choose your reminder time: </label>
+                  <input type="time" id="startTime">
+                </form>
             </div>
             <div> 
-              <h4 id="countdown"></h4>
+              <h4 id="countdown">Countdown:</h4>
             </div>
             <div>
               <button type="submit" id="email">Email me a reminder</button>
@@ -50,6 +34,9 @@
       <br />
     </div>
     <button id="reminder"></button>
-    <!-- <script src="popup.js"></script> -->
   </body>
+  <script src="popup.js"></script>
+  <script src="background.js"></script>
+  <script src="options.js"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </html>

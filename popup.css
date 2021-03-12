@@ -1,0 +1,23 @@
+.container {
+  width: 350px;
+  height: 350px;
+  margin: auto;
+  background-color: #DCDCDD;
+  color: #4C5C68;
+  border-color: #46494C;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+p,h2,h3 {
+  text-align: center ;;
+}
+body {
+  background-color: #1985A1
+}
+
+.countdown {
+    text-align: center;
+    margin-top: 0px;
+  
+}
